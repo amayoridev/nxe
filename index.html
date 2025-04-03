@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web Fullscreen Sections</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#section1">Home</a></li>
+            <li><a onclick="cms()">Services</a></li>
+            <li><a onclick="cms()">Support us</a></li>
+            </ul>
+    </nav>
+    <section id="section1" class="slider-section">
+        <div class="slide active" style="background-image: url('./assets/img/main.jpg');"></div>
+        <div class="slide" style="background-image: url('./assets/img/main2.jpeg'); background-position: left;"></div>
+        <div class="slide" style="background-image: url('./assets/img/main3.jpg');"></div>
+        <div class="content">
+            <h1>Nexon Enterprise</h1>
+            <p>A business from Amayori.</p>
+        </div>
+
+        <div class="slider-dots">
+            </div>
+    </section>
+
+    <section id="section2">
+        <div class="content">
+            <h1>Who are we?</h1>
+            <p>Nexon is a team of members with passion in many fields.<br>From the ground to the cloud.</p>
+        </div>
+        </section>
+        <!--
+        <section id="section-gallery">
+            <div class="content gallery-content"> <h2 class="gallery-title">Bộ Sưu Tập Ảnh</h2> <div class="swiper gallery-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="path/to/gallery-image-1.jpg" alt="Ảnh bộ sưu tập 1">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="path/to/gallery-image-2.jpg" alt="Ảnh bộ sưu tập 2">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="path/to/gallery-image-3.jpg" alt="Ảnh bộ sưu tập 3">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="path/to/gallery-image-4.jpg" alt="Ảnh bộ sưu tập 4">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="path/to/gallery-image-5.jpg" alt="Ảnh bộ sưu tập 5">
+                        </div>
+                        </div>
+    
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+    
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>-->
+        <section id="section3">
+            <div class="content">
+                <h1>Contact us</h1>
+                <p>Interest on cloud services, photography, aerial cinematopgrahy,...?<br>Do you want to be a part of Nexon?</p><br>
+                <button id="button_addon">Just contact us!</button>
+            </div>
+        </section>
+    
+
+    <script src="./assets/js/main.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+            function cms(){
+                alert(`Sorry, this page is not ready yet. Please come back later!`)
+            }
+        </script>
+    </body>
+</html>

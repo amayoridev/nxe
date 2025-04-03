@@ -1,0 +1,253 @@
+/* =========================================
+   RESET VÀ CÀI ĐẶT CHUNG
+   ========================================= */
+
+   body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: "Montserrat", sans-serif;
+    /* scroll-behavior: smooth; */
+}
+
+/* =========================================
+   ĐỊNH KIỂU CHUNG CHO CÁC SECTION
+   ========================================= */
+
+section {
+    width: 100%;
+    height: 100vh;
+    position: relative; /* Vẫn cần thiết */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+/* --- LỚP PHỦ TỐI CHO TẤT CẢ SECTION --- */
+section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Màu đen với độ mờ 30%. Thay đổi 0.3 để điều chỉnh độ tối */
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1; /* Nằm trên lớp nền mờ */
+}
+
+
+/* =========================================
+   SLIDER CHO SECTION 1 (#section1)
+   ========================================= */
+
+/* Section 1 không cần background-image trực tiếp */
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+
+    /* --- THÊM HIỆU ỨNG BLUR --- */
+    /* Thay đổi 3px để điều chỉnh độ mờ */
+    filter: blur(3px);
+    /* Đặt slide dưới lớp phủ tối */
+    z-index: 0;
+    /* Tùy chọn: Có thể cải thiện hiệu suất render filter blur */
+    /* transform: translateZ(0); */
+}
+
+.slide.active {
+    opacity: 1;
+    /* z-index vẫn là 0, độ active điều khiển bằng opacity */
+}
+
+/* Định kiểu cho các dấu chấm điều hướng */
+.slider-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    /* Đảm bảo dots nằm trên lớp phủ tối và content */
+    z-index: 3;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: white;
+}
+
+/* =========================================
+   CÁC SECTION CÓ NỀN TĨNH (#section2, #section3, ...)
+   ========================================= */
+
+/* Xóa các thuộc tính background khỏi các section tĩnh */
+#section2,
+#section3
+/* Thêm các ID section tĩnh khác vào đây */ {
+    /* Không cần đặt background-* ở đây nữa */
+}
+
+/* Thêm ::before để chứa ảnh nền mờ cho các section tĩnh */
+#section2::before,
+#section3::before
+/* Thêm các ID::before section tĩnh khác vào đây */ {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    /* --- THÊM HIỆU ỨNG BLUR --- */
+    /* Thay đổi 3px để điều chỉnh độ mờ */
+    filter: blur(3px);
+    /* Đặt lớp nền mờ dưới lớp phủ tối */
+    z-index: 0;
+    /* Tùy chọn: Có thể cải thiện hiệu suất render filter blur */
+    /* transform: translateZ(0); */
+}
+
+/* Đặt ảnh nền cụ thể cho TỪNG ::before của section tĩnh */
+#section2::before {
+    background-image: url('../img/about.jpeg'); 
+}
+
+#section3::before {
+    background-image: url('../img/last.jpg');
+}
+
+/* Thêm rule tương tự cho #section4::before, #section5::before,... nếu có */
+/*
+#section4::before {
+    background-image: url('path/to/your/image4.jpg');
+}
+*/
+
+
+/* =========================================
+   ĐỊNH KIỂU CHO KHUNG NỘI DUNG (.content)
+   ========================================= */
+
+.content {
+    /* Giữ nguyên background-color nếu muốn có thêm 1 lớp nền cho box nội dung */
+    background-color: transparent; /* Lớp nền riêng của content */
+    padding: 20px 40px;
+    border-radius: 10px;
+    position: relative; /* Cần thiết để z-index hoạt động */
+    /* Đảm bảo content nằm trên lớp phủ tối (z-index: 1) */
+    z-index: 2;
+    /* max-width: 80%; */ /* Tùy chọn giới hạn chiều rộng */
+}
+
+.content h1 {
+    font-size: 3em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 1.2em;
+    margin-bottom: 0;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* --- THAY ĐỔI: Mặc định trong suốt --- */
+    background-color: transparent;
+    padding: 12px 0;
+    z-index: 1000;
+    /* --- THAY ĐỔI: Mặc định không có bóng đổ --- */
+    box-shadow: none;
+    /* --- THÊM: Transition cho hiệu ứng mượt mà --- */
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* --- THÊM: Lớp mới cho trạng thái đã cuộn --- */
+.navbar.navbar-scrolled {
+    background-color: rgba(0, 0, 0, 0.7); /* Nền đen mờ khi cuộn */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Thêm lại bóng đổ khi cuộn */
+}
+
+/* --- Các style còn lại cho .navbar ul, li, a giữ nguyên --- */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 20px;
+    display: flex;
+    /*justify-content: center;
+    align-items: center;*/
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* --- Đảm bảo cuộn mượt --- */
+html {
+     scroll-behavior: smooth;
+}
+#button_addon{
+
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    padding: 0 16px;
+    background-color: #0070d2;
+    border-radius: 0.25rem;
+    border: 1px solid #0070d2;
+    color: #fff;
+    font-size: 13px;
+    line-height: 30px;
+    font-weight: 400;
+    text-align: center;
+    :hover {
+        background-color: #005fb2;  
+        border-color: #005fb2;
+    } 
+
+}
