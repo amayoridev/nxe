@@ -112,7 +112,8 @@ section::after {
 
 /* Thêm ::before để chứa ảnh nền mờ cho các section tĩnh */
 #section2::before,
-#section3::before
+#section3::before,
+#section4::before
 /* Thêm các ID::before section tĩnh khác vào đây */ {
     content: '';
     position: absolute;
@@ -148,6 +149,9 @@ section::after {
     background-image: url('path/to/your/image4.jpg');
 }
 */
+#section4::before{
+    background-image: url('../img/bocchi-info.webp');
+}
 
 
 /* =========================================

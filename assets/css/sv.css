@@ -1,0 +1,222 @@
+/* =========================================
+   RESET VÀ CÀI ĐẶT CHUNG
+   ========================================= */
+
+   body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: "Montserrat", sans-serif;
+    background-color: #f0f0f0; /* Added a light background for contrast */
+    color: #333;
+}
+
+/* =========================================
+   NAVBAR STYLING
+   ========================================= */
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    padding: 15px 0;
+    position: fixed; /* Keep navbar fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure navbar is above other content */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 30px; /* Add some padding */
+    display: flex;
+    justify-content: center; /* Center nav items */
+    align-items: center;
+}
+
+.navbar li {
+    margin: 0 20px; /* Adjust spacing */
+}
+
+.navbar a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 10px; /* Adjust padding */
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* =========================================
+   GALLERY SECTION STYLING
+   ========================================= */
+
+#section-gallery {
+    padding: 100px 20px 50px 20px; /* Add padding top (below navbar) and bottom */
+    min-height: 80vh; /* Ensure section takes up significant height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Important for Swiper */
+}
+
+.gallery-content {
+    width: 100%;
+    max-width: 1200px; /* Limit max width */
+    margin: 0 auto;
+}
+
+.gallery-title {
+    font-size: 2.5em;
+    margin-bottom: 40px; /* Space below title */
+    color: #333; /* Darker color for title */
+}
+
+/* =========================================
+   SWIPER & GALLERY ITEM STYLING
+   ========================================= */
+
+.gallery-swiper {
+    width: 100%;
+    padding-top: 10px; /* Space above slides */
+    padding-bottom: 50px; /* Space below slides for pagination */
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    /* Optional: Add a background color while images load */
+    background-color: #e0e0e0;
+    /* Make slides focusable for accessibility */
+     /* tabindex="0" can be added directly in HTML if needed */
+}
+
+.gallery-item {
+    position: relative; /* Crucial for positioning the placeholder */
+    display: block; /* Make it behave like a block element */
+    overflow: hidden; /* Hide anything spilling out */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Subtle shadow */
+}
+
+.gallery-item img {
+    display: block; /* Remove extra space below image */
+    width: 100%; /* Make image fill container width */
+    height: auto; /* Maintain aspect ratio */
+    /* For uniform look if images have different aspect ratios: */
+    /* aspect-ratio: 16 / 9; */ /* Or 4/3, 1/1 etc. */
+    /* object-fit: cover; */   /* Cover the area, cropping if needed */
+    transition: transform 0.3s ease; /* Smooth zoom on hover */
+}
+
+.image-name-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    color: #fff; /* White text */
+    font-size: 1.1em;
+    font-weight: 500;
+
+    /* Center the text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px; /* Add some padding inside the overlay */
+
+    /* --- Hover Effect --- */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Smooth fade-in/out */
+    pointer-events: none; /* Allow clicks/drags to go through to Swiper */
+}
+
+/* --- Reveal placeholder on hover --- */
+.gallery-item:hover .image-name-placeholder {
+    opacity: 1; /* Make visible */
+}
+
+/* --- Optional: Subtle zoom effect on image hover --- */
+.gallery-item:hover img {
+    transform: scale(1.05); /* Slightly zoom image */
+}
+
+
+/* Swiper Navigation/Pagination Colors */
+/* You might need to adjust these selectors if using custom classes */
+:root { /* Define CSS variables for easier color changes */
+    --swiper-theme-color: #0070d2; /* Example blue color */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--swiper-theme-color);
+    transition: opacity 0.3s ease;
+}
+
+/* Hide buttons initially on non-hover */
+/* .swiper-button-next,
+.swiper-button-prev {
+    opacity: 0.5;
+} */
+
+/* Show buttons fully on swiper hover */
+/* .gallery-swiper:hover .swiper-button-next,
+.gallery-swiper:hover .swiper-button-prev {
+    opacity: 1;
+} */
+
+
+.swiper-pagination-bullet {
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 1; /* Make inactive dots visible */
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--swiper-theme-color);
+}
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS (Optional)
+   ========================================= */
+
+@media (max-width: 768px) {
+    .navbar ul {
+        justify-content: space-around; /* Adjust navbar layout */
+    }
+    .navbar li {
+        margin: 0 10px;
+    }
+    .gallery-title {
+        font-size: 2em;
+    }
+    #section-gallery {
+        padding-top: 80px; /* Adjust padding for smaller navbar */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar a {
+        font-size: 0.9rem;
+    }
+     .navbar li {
+        margin: 0 5px;
+    }
+    .gallery-title {
+        font-size: 1.8em;
+    }
+     .image-name-placeholder {
+        font-size: 1em;
+    }
+}

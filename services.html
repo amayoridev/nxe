@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexon Gallery | By Amayori</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="./assets/css/sv.css">
+    <link rel="icon" type="image/x-icon" href="./assets/img/ico.jpg">
+
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="./">Home</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="https://singapore.ndqm.cloud" target="_blank" rel="noopener noreferrer">Cloud Storage</a></li> {/* Added target blank */}
+        </ul>
+    </nav>
+
+    <section id="section-gallery">
+        <div class="gallery-content">
+            <h2 class="gallery-title">What thing do we do?</h2>
+
+            <div class="swiper gallery-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="https://assets.enterprisestorageforum.com/uploads/2021/09/Now-is-the-Time-to-Switch-Log-Management-To-Object-Storage--696x569.jpeg" alt="Mô tả ảnh 1">
+                            <div class="image-name-placeholder">Cloud Storage</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            
+                            <img src="https://iso.500px.com/wp-content/uploads/2016/10/stock-photo-159358357-1500x982.jpg" alt="Mô tả ảnh 2">
+                            <div class="image-name-placeholder">Photography</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            
+                            <img src="https://flyworld.vn/wp-content/uploads/2018/08/3-7.png" alt="Mô tả ảnh 3">
+                            <div class="image-name-placeholder">Aerial Cinematopgrahy</div>
+                        </div>
+                    </div>
+                     <div class="swiper-slide">
+                        <div class="gallery-item">
+                             
+                            <img src="https://media.licdn.com/dms/image/v2/C5112AQGh2C630QvyTw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1520126937775?e=2147483647&v=beta&t=1ezFguo1HzAv7UPCMcmTr-45BqFw5473HwjWgqLGUhY" alt="Mô tả ảnh 4">
+                            <div class="image-name-placeholder">Event Organinzer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.gallery-swiper', {
+            // Parameters
+            loop: true, // Enable continuous loop
+            grabCursor: true, // Show grab cursor on hover
+            centeredSlides: true, // Center active slide
+
+            // Responsive Breakpoints
+             slidesPerView: 1, // Default for mobile
+             spaceBetween: 20,
+
+            breakpoints: {
+                // when window width is >= 640px
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                // when window width is >= 1024px
+                1024: {
+                    slidesPerView: 3, // Show 3 slides on larger screens
+                    spaceBetween: 40
+                }
+            },
+
+
+            // Pagination
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true, // Allow clicking on pagination dots
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // Optional: Simple alert function if you still need it
+        function cms(){
+            alert(`Sorry, this page is not ready yet. Please come back later!`);
+        }
+    </script>
+</body>
+</html>
